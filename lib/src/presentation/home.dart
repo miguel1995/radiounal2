@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 // import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:radiounal2/src/presentation/patials/app_bar_radio.dart';
 import '../data/models/programacion_model.dart';
 // import 'package:radiounal/src/app.dart';
 // import 'package:radiounal/src/business_logic/ScreenArguments.dart';
@@ -106,7 +107,7 @@ class _HomeState extends State<Home> {
     return Scaffold(
         extendBodyBehindAppBar: true,
         //endDrawer: const Menu(),
-        //appBar: AppBarRadio(enableBack: false),
+        appBar: AppBarRadio(enableBack: false),
         body: DecoratedBox(
             decoration: BoxDecoration(
               image: DecorationImage(

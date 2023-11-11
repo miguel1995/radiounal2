@@ -40,6 +40,7 @@ dependencies:
   flutter_svg: ^1.1.6 # Permite el manejo de imagenes con formato SVG
   cached_network_image: ^3.2.3 # Manejo de errores en caso de no encontrar un imagen desde url
   flutter_spinkit: ^5.1.0 #Agrega indicadores de carga
+  audioplayers: ^5.2.0 #Reproductor de audio
 
 
 dev_dependencies:

@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
-//import 'package:audioplayers/audioplayers.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
@@ -46,7 +46,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
   var canExpand = false;
   var hasDuration = false;
 
-  //late AudioPlayer audioPlayer;
+  late AudioPlayer audioPlayer;
   bool isPlaying = false;
   bool   _interrupted = false;
   bool isLoading = false;
@@ -84,7 +84,6 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
 
     //Estación de bogotá
     audioUrl = "http://streaming.unradio.unal.edu.co:8010/;stream.mp3";
-    //audioUrl = "http://podcastradio.unal.edu.co/fileadmin/Radio/Audio-imagenes/2022/11/RGU_E68-Politicas_urbana_y_social-1.mp3";
     imagenUrl = "";
     url = "http://radio.unal.edu.co/bogota-985";
     textParent = "";
@@ -102,33 +101,33 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
       Text("1.5x", style: TextStyle(color: Colors.white)),
       Text("2.0x", style: TextStyle(color: Colors.white))
     ];
-/*
+
     audioPlayer = AudioPlayer();
     audioPlayer.setVolume(currentVolumen);
     audioPlayer.setPlaybackRate(dropDownValue);
-
+/*
     myFavoritoBtn = FavoritoBtn(uid: uid, message: type,
         tipo:(type == "RADIO") ? "EMISION" : "EPISODIO",
-        isPrimaryColor: false);
+        isPrimaryColor: false);*/
 
     initializeDateFormatting('es_ES');
     Intl.defaultLocale = 'es_ES';
 
     audioPlayer.onPlayerStateChanged.listen((state) {
-      if (state == PlayerState.PLAYING) {
+      if (state == PlayerState.playing) {
         setState(() {
           isPlaying = true;
         });
       }
 
-      if (state == PlayerState.PAUSED) {
+      if (state == PlayerState.paused) {
         setState(() {
           isPlaying = false;
         });
       }
 
-      if (state == PlayerState.COMPLETED) {
-        audioPlayer.play(audioUrl);
+      if (state == PlayerState.completed) {
+        audioPlayer.play(UrlSource(audioUrl));
       }
     });
 
@@ -140,7 +139,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
       }
     });
 
-    audioPlayer.onAudioPositionChanged.listen((newPosition) {
+    audioPlayer.onPositionChanged.listen((newPosition) {
       if (hasDuration) {
         setState(() {
           position = newPosition;
@@ -151,14 +150,14 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
           isLoading = false;
         });
       }
-    });*/
+    });
 
   }
 
     @override
   void dispose() {
-    /*audioPlayer.dispose();
-    _controller.dispose();*/
+    audioPlayer.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -173,9 +172,9 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     String formatted = "";
     if (duration != null) {
       if (duration.substring(0, 2) == "00") {
-        formatted = "| " + duration.substring(3);
+        formatted = "| ${duration.substring(3)}";
       } else {
-        formatted = "| " + duration;
+        formatted = "| $duration";
       }
     }
 
@@ -212,12 +211,12 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                   height: lerpDouble(_minHeight, _maxHeight, value),
                   child: Container(
                       alignment: Alignment.bottomCenter,
-                      child: Container(child: Text("Soy un Reproductor"))
-                  ))
+                      child:
 
-                      /*_expanded
+
+                      _expanded
                           ? audioPlayerExpanded()
-                          : audioPlayerMini()))*/
+                          : audioPlayerMini()))
             ],
           );
         });
@@ -572,7 +571,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
 
                       })),
               Container(
-                  padding: EdgeInsets.only(right: 20),
+                  padding: const EdgeInsets.only(right: 20),
                   child: Text(formatTimeString(position),
                       style: TextStyle(
                           color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),

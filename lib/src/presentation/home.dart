@@ -121,11 +121,11 @@ class _HomeState extends State<Home> {
                 child: Column(
               children: [
                 drawDestacados(),
-                /*drawFrecuencias(),
+                drawFrecuencias(),
                 drawFavouriteBtn(),
                 drawProgramacion(),
                 drawMasEscuchado(),
-                drawSiguenos()*/
+                drawSiguenos()
               ],
             ))));
   }
@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
           }),
     );
   }
-/*
+
   Widget drawFrecuencias() {
     return Container(
       padding: const EdgeInsets.only(left: 0),
@@ -181,7 +181,6 @@ class _HomeState extends State<Home> {
                 style: TextStyle(
                   shadows: [
                     Shadow(
-                        // color:Color(isDarkMode?0xFFFCDC4D:0xff121C4A),
                         color: Color(isDarkMode ? 0xFFFFFFFF : 0xff121C4A),
                         offset: const Offset(0, -5))
                   ],
@@ -556,13 +555,14 @@ class _HomeState extends State<Home> {
               ])),
         ));
   }
-/*
+
   Widget drawFrecuenciaBtn(String texto, String urlFrecuencia) {
     var widthBox = MediaQuery.of(context).size.width * 0.35;
     return InkWell(
         onTap: () {
+          /*
           widget.callBackPlayMusic!(0, urlFrecuencia, "", "", texto, "", "", "",
-              "", "", "", true, null);
+              "", "", "", true, null);*/
         },
         child: Container(
             alignment: Alignment.center,
@@ -594,7 +594,7 @@ class _HomeState extends State<Home> {
                   fontSize: 15),
             )));
   }
-
+/*
   Widget buildTableProgramacion(
       AsyncSnapshot<List<ProgramacionModel>> snapshot) {
     List<ProgramacionModel>? list = snapshot.data;

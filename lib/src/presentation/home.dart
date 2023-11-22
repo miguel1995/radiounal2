@@ -10,8 +10,8 @@ import 'package:intl/intl.dart';
 import 'package:radiounal2/src/presentation/patials/app_bar_radio.dart';
 import '../data/models/programacion_model.dart';
 // import 'package:radiounal/src/app.dart';
-// import 'package:radiounal/src/business_logic/ScreenArguments.dart';
-// import 'package:radiounal/src/business_logic/bloc/radio_destacados_bloc.dart';
+import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
+import 'package:radiounal2/src/business_logic/bloc/radio_destacados_bloc.dart';
 // import 'package:radiounal/src/business_logic/bloc/radio_programacion_bloc.dart';
 // import 'package:radiounal/src/data/models/episodio_model.dart';
 // import 'package:radiounal/src/data/models/programa_model.dart';
@@ -19,9 +19,9 @@ import '../data/models/programacion_model.dart';
 // import 'package:radiounal/src/presentation/partials/bottom_navigation_bar_radio.dart';
 // import 'package:radiounal/src/presentation/partials/favorito_btn.dart';
 // import 'package:radiounal/src/presentation/partials/menu.dart';
-// import 'package:carousel_slider/carousel_slider.dart';
-// import 'package:radiounal/src/business_logic/bloc/podcast_destacados_bloc.dart';
-// import 'package:rxdart/rxdart.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:radiounal2/src/business_logic/bloc/podcast_destacados_bloc.dart';
+import 'package:rxdart/rxdart.dart';
 // import 'package:url_launcher/url_launcher.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
@@ -57,9 +57,9 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  /*final blocRadioDestacados = RadioDestacadosBloc();
+  final blocRadioDestacados = RadioDestacadosBloc();
   final blocPodcastDestacados = PodcastDestacadosBloc();
-  final blocRadioProgramacion = RadioProgramacionBloc();
+  /*final blocRadioProgramacion = RadioProgramacionBloc();
   final blocRadioMasEscuchados = RadioMasEscuchadosBloc();
   final blocPodcastMasEscuchados = PodcastMasEscuchadosBloc();
   */
@@ -74,10 +74,10 @@ class _HomeState extends State<Home> {
 
     initializeDateFormatting('es_ES');
     Intl.defaultLocale = 'es_ES';
-/*
+
     blocRadioDestacados.fetchDestacados();
     blocPodcastDestacados.fetchDestacados();
-    blocRadioProgramacion.fetchProgramacion();
+   /* blocRadioProgramacion.fetchProgramacion();
     blocRadioMasEscuchados.fetchMasEscuchados();
     blocPodcastMasEscuchados.fetchMasEscuchados();
 
@@ -120,8 +120,8 @@ class _HomeState extends State<Home> {
             child: SingleChildScrollView(
                 child: Column(
               children: [
-                /*drawDestacados(),
-                drawFrecuencias(),
+                drawDestacados(),
+                /*drawFrecuencias(),
                 drawFavouriteBtn(),
                 drawProgramacion(),
                 drawMasEscuchado(),
@@ -132,14 +132,14 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    /*blocRadioProgramacion.dispose();
+    //blocRadioProgramacion.dispose();
     blocPodcastDestacados.dispose();
     blocRadioDestacados.dispose();
-    blocRadioMasEscuchados.dispose();
+    /*blocRadioMasEscuchados.dispose();
     blocPodcastMasEscuchados.dispose();*/
     super.dispose();
   }
-/*
+
   Widget drawDestacados() {
     return Container(
       margin: const EdgeInsets.only(bottom: 20, top: 140),
@@ -165,7 +165,7 @@ class _HomeState extends State<Home> {
           }),
     );
   }
-
+/*
   Widget drawFrecuencias() {
     return Container(
       padding: const EdgeInsets.only(left: 0),
@@ -445,7 +445,7 @@ class _HomeState extends State<Home> {
             ],
           )
         ]));
-  }
+  }*/
 
   Widget drawError(error) {
     return Container(
@@ -465,6 +465,7 @@ class _HomeState extends State<Home> {
     );
   }
 
+
   Widget buildListDestacados(AsyncSnapshot<List<dynamic>> snapshot1) {
     var list1 = snapshot1.data![0]; //Destacados de radio
     var list2 = snapshot1.data![1]; //Destacados de podcast
@@ -483,6 +484,9 @@ class _HomeState extends State<Home> {
         ),
         items: cardList);
   }
+
+
+
 
   Widget buildCard(element, siteName) {
     return InkWell(
@@ -552,7 +556,7 @@ class _HomeState extends State<Home> {
               ])),
         ));
   }
-
+/*
   Widget drawFrecuenciaBtn(String texto, String urlFrecuencia) {
     var widthBox = MediaQuery.of(context).size.width * 0.35;
     return InkWell(

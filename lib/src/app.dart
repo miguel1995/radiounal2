@@ -38,8 +38,8 @@ class _MyAppState extends State<MyApp> {
                 keyPlayer.currentState?.playMusic,
                  pragramacionList
              ),
-            Positioned(
-                bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),
+            /*Positioned(
+                bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),*/
             Container(
                 alignment: Alignment.center,
                 child: Text("010- initial reproducer", style: TextStyle(color: Colors.red))

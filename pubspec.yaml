@@ -41,6 +41,9 @@ dependencies:
   cached_network_image: ^3.2.3 # Manejo de errores en caso de no encontrar un imagen desde url
   flutter_spinkit: ^5.1.0 #Agrega indicadores de carga
   audioplayers: ^5.2.0 #Reproductor de audio
+  encrypt: ^5.0.1 #Libreria de cifrado
+  connectivity_plus: ^3.0.2 #verifica la coneccion a internet
+  carousel_slider: ^4.2.1 # Slider usado para mostrar el listado de contenidos destacados en Home
 
 
 dev_dependencies:

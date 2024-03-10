@@ -22,8 +22,8 @@ import 'package:radiounal2/src/business_logic/bloc/radio_destacados_bloc.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_destacados_bloc.dart';
 import 'package:rxdart/rxdart.dart';
-// import 'package:url_launcher/url_launcher.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 //import '../business_logic/bloc/podcast_masescuchados_bloc.dart';
 //import '../business_logic/bloc/radio_masescuchados_bloc.dart';
@@ -123,8 +123,8 @@ class _HomeState extends State<Home> {
                 drawDestacados(),
                 drawFrecuencias(),
                 drawFavouriteBtn(),
-                drawProgramacion(),
-                drawMasEscuchado(),
+                //drawProgramacion(),
+                //drawMasEscuchado(),
                 drawSiguenos()
               ],
             ))));
@@ -255,7 +255,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget drawProgramacion() {
+  /*Widget drawProgramacion() {
     return Container(
       margin: const EdgeInsets.only(bottom: 10, top: 10),
       padding: const EdgeInsets.only(bottom: 10, top: 10),
@@ -304,9 +304,9 @@ class _HomeState extends State<Home> {
             return child;
           }),
     );
-  }
+  }*/
 
-  Widget drawMasEscuchado() {
+  /*Widget drawMasEscuchado() {
     return Container(
       color: Color(isDarkMode ? 0x00000000 : 0xFFFFFFFF),
       margin: const EdgeInsets.only(bottom: 20, top: 20),
@@ -358,7 +358,7 @@ class _HomeState extends State<Home> {
         ],
       ),
     );
-  }
+  }*/
 
   Widget drawSiguenos() {
     var marginBottom = MediaQuery.of(context).size.height.toDouble() * 0.10;
@@ -444,7 +444,7 @@ class _HomeState extends State<Home> {
             ],
           )
         ]));
-  }*/
+  }
 
   Widget drawError(error) {
     return Container(
@@ -743,7 +743,7 @@ class _HomeState extends State<Home> {
                       ),
                     ]),
                 child: Column(children: rowList))));
-  }
+  }*/
 
   Widget buildListEscuchados(AsyncSnapshot<List<dynamic>> snapshot1) {
     var list1 = snapshot1.data![0];
@@ -888,5 +888,5 @@ class _HomeState extends State<Home> {
     }
 
     return formatted;
-  }*/
+  }
 }

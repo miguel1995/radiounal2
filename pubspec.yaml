@@ -44,6 +44,8 @@ dependencies:
   encrypt: ^5.0.1 #Libreria de cifrado
   connectivity_plus: ^3.0.2 #verifica la coneccion a internet
   carousel_slider: ^4.2.1 # Slider usado para mostrar el listado de contenidos destacados en Home
+  url_launcher: ^6.1.7 # Abre una url en el navegador del movil
+
 
 
 dev_dependencies:

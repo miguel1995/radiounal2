@@ -12,7 +12,7 @@ import '../data/models/programacion_model.dart';
 // import 'package:radiounal/src/app.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_destacados_bloc.dart';
-// import 'package:radiounal/src/business_logic/bloc/radio_programacion_bloc.dart';
+import 'package:radiounal2/src/business_logic/bloc/radio_programacion_bloc.dart';
 // import 'package:radiounal/src/data/models/episodio_model.dart';
 // import 'package:radiounal/src/data/models/programa_model.dart';
 // import 'package:radiounal/src/presentation/partials/app_bar_radio.dart';
@@ -59,7 +59,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final blocRadioDestacados = RadioDestacadosBloc();
   final blocPodcastDestacados = PodcastDestacadosBloc();
-  //final blocRadioProgramacion = RadioProgramacionBloc();
+  final blocRadioProgramacion = RadioProgramacionBloc();
   final blocRadioMasEscuchados = RadioMasEscuchadosBloc();
   final blocPodcastMasEscuchados = PodcastMasEscuchadosBloc();
 
@@ -77,7 +77,7 @@ class _HomeState extends State<Home> {
 
     blocRadioDestacados.fetchDestacados();
     blocPodcastDestacados.fetchDestacados();
-    //blocRadioProgramacion.fetchProgramacion();
+    blocRadioProgramacion.fetchProgramacion();
     blocRadioMasEscuchados.fetchMasEscuchados();
     blocPodcastMasEscuchados.fetchMasEscuchados();
 /*
@@ -123,7 +123,7 @@ class _HomeState extends State<Home> {
                 drawDestacados(),
                 drawFrecuencias(),
                 drawFavouriteBtn(),
-                //drawProgramacion(),
+                drawProgramacion(),
                 drawMasEscuchado(),
                 drawSiguenos()
               ],
@@ -132,7 +132,7 @@ class _HomeState extends State<Home> {
 
   @override
   void dispose() {
-    //blocRadioProgramacion.dispose();
+    blocRadioProgramacion.dispose();
     blocPodcastDestacados.dispose();
     blocRadioDestacados.dispose();
     blocRadioMasEscuchados.dispose();
@@ -255,7 +255,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  /*Widget drawProgramacion() {
+  Widget drawProgramacion() {
     return Container(
       margin: const EdgeInsets.only(bottom: 10, top: 10),
       padding: const EdgeInsets.only(bottom: 10, top: 10),
@@ -304,7 +304,7 @@ class _HomeState extends State<Home> {
             return child;
           }),
     );
-  }*/
+  }
 
   Widget drawMasEscuchado() {
     return Container(
@@ -594,7 +594,7 @@ class _HomeState extends State<Home> {
                   fontSize: 15),
             )));
   }
-/*
+
   Widget buildTableProgramacion(
       AsyncSnapshot<List<ProgramacionModel>> snapshot) {
     List<ProgramacionModel>? list = snapshot.data;
@@ -743,7 +743,7 @@ class _HomeState extends State<Home> {
                       ),
                     ]),
                 child: Column(children: rowList))));
-  }*/
+  }
 
   Widget buildListEscuchados(AsyncSnapshot<List<dynamic>> snapshot1) {
     var list1 = snapshot1.data![0];

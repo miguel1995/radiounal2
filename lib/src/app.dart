@@ -42,7 +42,7 @@ class _MyAppState extends State<MyApp> {
                 bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),*/
             Container(
                 alignment: Alignment.center,
-                child: Text("014- draw Siguenos", style: TextStyle(color: Colors.red))
+                child: Text("015- install firebase", style: TextStyle(color: Colors.red))
             )
           ],
         )

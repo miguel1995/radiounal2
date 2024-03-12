@@ -25,8 +25,8 @@ import 'package:rxdart/rxdart.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-//import '../business_logic/bloc/podcast_masescuchados_bloc.dart';
-//import '../business_logic/bloc/radio_masescuchados_bloc.dart';
+import '../business_logic/bloc/podcast_masescuchados_bloc.dart';
+import '../business_logic/bloc/radio_masescuchados_bloc.dart';
 
 class Home extends StatefulWidget {
   late Function(
@@ -59,10 +59,10 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   final blocRadioDestacados = RadioDestacadosBloc();
   final blocPodcastDestacados = PodcastDestacadosBloc();
-  /*final blocRadioProgramacion = RadioProgramacionBloc();
+  //final blocRadioProgramacion = RadioProgramacionBloc();
   final blocRadioMasEscuchados = RadioMasEscuchadosBloc();
   final blocPodcastMasEscuchados = PodcastMasEscuchadosBloc();
-  */
+
 
   String potcastRandom = "";
   bool isDarkMode = false;
@@ -77,10 +77,10 @@ class _HomeState extends State<Home> {
 
     blocRadioDestacados.fetchDestacados();
     blocPodcastDestacados.fetchDestacados();
-   /* blocRadioProgramacion.fetchProgramacion();
+    //blocRadioProgramacion.fetchProgramacion();
     blocRadioMasEscuchados.fetchMasEscuchados();
     blocPodcastMasEscuchados.fetchMasEscuchados();
-
+/*
     blocPodcastDestacados.subject.stream.listen((event) {
       //Actualiza la transmision de podcast random
       EpisodioModel randomItem = (event..shuffle()).first;
@@ -124,7 +124,7 @@ class _HomeState extends State<Home> {
                 drawFrecuencias(),
                 drawFavouriteBtn(),
                 //drawProgramacion(),
-                //drawMasEscuchado(),
+                drawMasEscuchado(),
                 drawSiguenos()
               ],
             ))));
@@ -135,8 +135,8 @@ class _HomeState extends State<Home> {
     //blocRadioProgramacion.dispose();
     blocPodcastDestacados.dispose();
     blocRadioDestacados.dispose();
-    /*blocRadioMasEscuchados.dispose();
-    blocPodcastMasEscuchados.dispose();*/
+    blocRadioMasEscuchados.dispose();
+    blocPodcastMasEscuchados.dispose();
     super.dispose();
   }
 
@@ -306,7 +306,7 @@ class _HomeState extends State<Home> {
     );
   }*/
 
-  /*Widget drawMasEscuchado() {
+  Widget drawMasEscuchado() {
     return Container(
       color: Color(isDarkMode ? 0x00000000 : 0xFFFFFFFF),
       margin: const EdgeInsets.only(bottom: 20, top: 20),
@@ -358,7 +358,7 @@ class _HomeState extends State<Home> {
         ],
       ),
     );
-  }*/
+  }
 
   Widget drawSiguenos() {
     var marginBottom = MediaQuery.of(context).size.height.toDouble() * 0.10;

@@ -46,6 +46,7 @@ dependencies:
   carousel_slider: ^4.2.1 # Slider usado para mostrar el listado de contenidos destacados en Home
   url_launcher: ^6.1.7 # Abre una url en el navegador del movil
   cloud_firestore: ^4.3.1 #Caracteristicas de firebase para el manejo de storage
+  firebase_messaging: ^14.2.1 #Permite la administraciòn de push notifications con firebase
 
 
 

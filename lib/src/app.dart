@@ -6,6 +6,7 @@ import 'data/models/programacion_model.dart';
 import 'presentation/home.dart';
 import 'business_logic/firebase/push_notifications.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
+import 'package:radiounal2/src/presentation/splash.dart';
 
 
 
@@ -127,11 +128,14 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("19- apply estructura de navegacion en app.dart", style: TextStyle(color: Colors.red))
-                    )
-                    /*Positioned(
+                        child: Text("20- splash", style: TextStyle(color: Colors.red))
+                    ),
+                    /*
+                    Positioned(
                         bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),
-                    Splash()*/
+                        */
+
+                    Splash()
                   ]));
             },
             initialRoute: "/",

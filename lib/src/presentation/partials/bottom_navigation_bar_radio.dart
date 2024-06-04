@@ -1,6 +1,5 @@
-//import 'package:adaptive_theme/adaptive_theme.dart';
+/*import 'package:adaptive_theme/adaptive_theme.dart';*/
 import 'package:cached_network_image/cached_network_image.dart';
-//import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
 
@@ -10,11 +9,10 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
-//import 'package:platform_device_id/platform_device_id.dart';
-//import 'package:share_plus/share_plus.dart';
+/*import 'package:platform_device_id/platform_device_id.dart';*/
+/*import 'package:share_plus/share_plus.dart';*/
 
-//import '../../business_logic/firebase/firebaseLogic.dart';
-//import 'favorito_btn.dart';
+/*import 'favorito_btn.dart';*/
 
 class BottomNavigationBarRadio extends StatefulWidget {
   const BottomNavigationBarRadio({Key? key}) : super(key: key);
@@ -70,7 +68,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
   var _maxHeight = 0.0;
   var _minHeight = 0.0;
 
-  //late FavoritoBtn? myFavoritoBtn;
+  /*late FavoritoBtn? myFavoritoBtn;*/
   bool isDarkMode = false;
 
   GlobalKey _buttonKey = GlobalKey(); // Usa una GlobalKey sin tipo específico
@@ -84,6 +82,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
 
     //Estación de bogotá
     audioUrl = "http://streaming.unradio.unal.edu.co:8010/;stream.mp3";
+    //audioUrl = "http://podcastradio.unal.edu.co/fileadmin/Radio/Audio-imagenes/2022/11/RGU_E68-Politicas_urbana_y_social-1.mp3";
     imagenUrl = "";
     url = "http://radio.unal.edu.co/bogota-985";
     textParent = "";
@@ -105,41 +104,41 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     audioPlayer = AudioPlayer();
     audioPlayer.setVolume(currentVolumen);
     audioPlayer.setPlaybackRate(dropDownValue);
-/*
-    myFavoritoBtn = FavoritoBtn(uid: uid, message: type,
+
+/*    myFavoritoBtn = FavoritoBtn(uid: uid, message: type,
         tipo:(type == "RADIO") ? "EMISION" : "EPISODIO",
         isPrimaryColor: false);*/
 
     initializeDateFormatting('es_ES');
     Intl.defaultLocale = 'es_ES';
 
-    audioPlayer.onPlayerStateChanged.listen((state) {
-      if (state == PlayerState.playing) {
+    /*audioPlayer.onPlayerStateChanged.listen((state) {
+      if (state == PlayerState.PLAYING) {
         setState(() {
           isPlaying = true;
         });
       }
 
-      if (state == PlayerState.paused) {
+      if (state == PlayerState.PAUSED) {
         setState(() {
           isPlaying = false;
         });
       }
 
-      if (state == PlayerState.completed) {
-        audioPlayer.play(UrlSource(audioUrl));
+      if (state == PlayerState.COMPLETED) {
+        audioPlayer.play(audioUrl);
       }
-    });
+    });*/
 
-    audioPlayer.onDurationChanged.listen((newDuration) {
+    /*audioPlayer.onDurationChanged.listen((newDuration) {
       if (hasDuration) {
         setState(() {
           duration = newDuration;
         });
       }
-    });
+    });*/
 
-    audioPlayer.onPositionChanged.listen((newPosition) {
+    /*audioPlayer.onAudioPositionChanged.listen((newPosition) {
       if (hasDuration) {
         setState(() {
           position = newPosition;
@@ -150,7 +149,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
           isLoading = false;
         });
       }
-    });
+    });*/
 
   }
 
@@ -172,16 +171,16 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     String formatted = "";
     if (duration != null) {
       if (duration.substring(0, 2) == "00") {
-        formatted = "| ${duration.substring(3)}";
+        formatted = "| " + duration.substring(3);
       } else {
-        formatted = "| $duration";
+        formatted = "| " + duration;
       }
     }
 
     return formatted;
   }
-/*
-  Future<AdaptiveThemeMode?> themeMethod() async {
+
+  /*Future<AdaptiveThemeMode?> themeMethod() async {
     final savedThemeMode = await AdaptiveTheme.getThemeMode();
     return savedThemeMode;
   }*/
@@ -204,15 +203,13 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
           final value = _controller.value;
 
           return Stack(
-
             children: [
               Container(
                   width: size.width,
                   height: lerpDouble(_minHeight, _maxHeight, value),
                   child: Container(
                       alignment: Alignment.bottomCenter,
-                      child:
-                      _expanded
+                      child: _expanded
                           ? audioPlayerExpanded()
                           : audioPlayerMini()))
             ],
@@ -256,11 +253,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                   icon: const Icon(Icons.arrow_left),
                   onPressed: () async {
                     if (position.inSeconds > 10) {
-
-                      /*
-                      audioPlayer.seek(position - const Duration(seconds: 10));*/
-
-
+                      audioPlayer.seek(position - const Duration(seconds: 10));
                     }
                   },
                 ),
@@ -269,17 +262,12 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                   iconSize: 80,
                   icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                   onPressed: () async {
+                    /*
                     if (isPlaying) {
-
-                      /*
                       await audioPlayer.pause();
-                      */
                     } else {
-                      /*
                       await audioPlayer.play(audioUrl);
-                      */
-
-                    }
+                    }*/
                   },
                 ),
                 IconButton(
@@ -288,11 +276,8 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                     icon: const Icon(Icons.arrow_right),
                     onPressed: () async {
                       if (position.inSeconds < duration.inSeconds - 10) {
-                        /*
                         audioPlayer
                             .seek(position + const Duration(seconds: 10));
-                            */
-
                       }
                     }),
                 Container(
@@ -317,10 +302,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                       max: duration.inSeconds.toDouble(),
                       value: position.inSeconds.toDouble(),
                       onChanged: (value) async {
-                        /*
                         audioPlayer.seek(Duration(seconds: value.toInt()));
-                        */
-
                       })),
               Text(
                   "${formatTimeString(position)}/${formatTimeString(duration)}",
@@ -349,9 +331,11 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
         child: Stack(
           children: [
             Column(children: [
-              Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              /*Row(mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
                 InkWell(
                     onTap: () {
+
                       setState(() {
                         _expanded = !_expanded;
                       });
@@ -364,21 +348,21 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                             'assets/icons/icono_flechita_down.svg',
                             color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),
                             width: 20)))
-              ]),
-              /*Row(
+              ]),*/
+              Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  myFavoritoBtn!,
+                  /*myFavoritoBtn!,*/
                   IconButton(
                     color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),
                     icon: const Icon(Icons.share),
                     onPressed: () {
-                      Share.share("Escucha Radio UNAL -  ${url}",
-                          subject: "Radio UNAL - ${title}");
+                      /*Share.share("Escucha Radio UNAL -  ${url}",
+                          subject: "Radio UNAL - ${title}");*/
                     },
                   )
                 ],
-              ),*/
+              ),
               SingleChildScrollView(
                   scrollDirection: Axis.vertical,
                   child: Column(children: [
@@ -467,10 +451,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                           setState(() {
                             currentVolumen = value;
                           });
-                          /*
                           audioPlayer.setVolume(currentVolumen);
-                          */
-
                         }),
                   )),
             if (showSpeedList)
@@ -535,29 +516,21 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                               : null)
                     ])),
             Row(children: [
-
-              Container(
+              /*Container(
                   child: IconButton(
                 color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),
                 iconSize: 40,
                 icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                 onPressed: () async {
-                  print(">>> PLAY MUSIC MINI");
-                  print(audioUrl);
+                  print(">>> Play mini");
+                  print(audioPlayer);
                   if (isPlaying) {
-
-                    /*
                     await audioPlayer.pause();
-
-                     */
                   } else {
-                    /*
-                    await audioPlayer.play(audioUrl);
-                    */
-
+                    /*await audioPlayer.play(audioUrl);*/
                   }
                 },
-              )),
+              )),*/
               Expanded(
                   child: Slider(
                       activeColor:
@@ -566,13 +539,10 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                       max: duration.inSeconds.toDouble(),
                       value: position.inSeconds.toDouble(),
                       onChanged: (value) async {
-                        /*
                         audioPlayer.seek(Duration(seconds: value.toInt()));
-                        */
-
                       })),
               Container(
-                  padding: const EdgeInsets.only(right: 20),
+                  padding: EdgeInsets.only(right: 20),
                   child: Text(formatTimeString(position),
                       style: TextStyle(
                           color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),
@@ -600,9 +570,14 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
       typeParam,
       tipoParam,
       urlParam,
-      bool isFrecuencia,
+      bool isFrecuencia
       /*FavoritoBtn? favoritoBtn*/
+
       ) {
+
+    print(">>> Url IN PLAY MUSIC ");
+    print(audioUrlParam);
+
     if (dateParam == "") {
       setState(() {
         date = DateFormat("yyyy-MM-dd'T'HH:mm:ssZ")
@@ -635,7 +610,6 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
       setState(() {
         canExpand = true;
         hasDuration = true;
-        // NOTA revisar en OLD
         //myFavoritoBtn = favoritoBtn;
       });
     }
@@ -657,9 +631,11 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     setState(() {
       isLoading = true;
     });
-/*
-    audioPlayer.setUrl(url);
-    audioPlayer.play(url);*/
+
+    /*audioPlayer.setUrl(url);*/
+    audioPlayer.play(url);
+    print(">>> PLAY ");
+    print(url);
   }
 
   Widget getImageMini() {
@@ -752,11 +728,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                 setState(() {
                   currentSpeedText = element;
                 });
-
-                /*
                 audioPlayer.setPlaybackRate(double.parse(currentSpeedText));
-
-                 */
                 setState(() {
                   showSpeedList = false;
                 });

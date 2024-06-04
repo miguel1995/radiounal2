@@ -560,6 +560,7 @@ class _HomeState extends State<Home> {
     var widthBox = MediaQuery.of(context).size.width * 0.35;
     return InkWell(
         onTap: () {
+          print(">>> Reproducir Frecuencias");
           /*
           widget.callBackPlayMusic!(0, urlFrecuencia, "", "", texto, "", "", "",
               "", "", "", true, null);*/

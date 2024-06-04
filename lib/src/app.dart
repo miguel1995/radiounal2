@@ -128,13 +128,11 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("20- splash", style: TextStyle(color: Colors.red))
+                        child: Text("21- draw mini repodictor", style: TextStyle(color: Colors.red))
                     ),
-                    /*
+
                     Positioned(
                         bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),
-                        */
-
                     Splash()
                   ]));
             },

@@ -81,7 +81,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
         vsync: this, duration: const Duration(milliseconds: 800));
 
     //Estación de bogotá
-    audioUrl = "http://streaming.unradio.unal.edu.co:8010/;stream.mp3";
+    audioUrl = "https://radio.unal.edu.co/streaming/bogota/;stream.mp3";
     //audioUrl = "http://podcastradio.unal.edu.co/fileadmin/Radio/Audio-imagenes/2022/11/RGU_E68-Politicas_urbana_y_social-1.mp3";
     imagenUrl = "";
     url = "http://radio.unal.edu.co/bogota-985";

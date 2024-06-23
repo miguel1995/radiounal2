@@ -83,7 +83,7 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
         vsync: this, duration: const Duration(milliseconds: 800));
 
     //Estación de bogotá
-    audioUrl = "http://streaming.unradio.unal.edu.co:8010/;stream.mp3";
+    audioUrl = "https://radio.unal.edu.co/streaming/bogota/;stream.mp3";
     imagenUrl = "";
     url = "http://radio.unal.edu.co/bogota-985";
     textParent = "";
@@ -544,16 +544,19 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                 onPressed: () async {
                   print(">>> PLAY MUSIC MINI");
                   print(audioUrl);
+                  print(">>> IS PLAYING");
+                    print(isPlaying);
+
                   if (isPlaying) {
 
-                    /*
+
                     await audioPlayer.pause();
 
-                     */
+
                   } else {
-                    /*
-                    await audioPlayer.play(audioUrl);
-                    */
+
+                    await audioPlayer.play(UrlSource(audioUrl));
+
 
                   }
                 },

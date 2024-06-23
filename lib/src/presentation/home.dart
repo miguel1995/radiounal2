@@ -196,7 +196,7 @@ class _HomeState extends State<Home> {
           ),
           Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             drawFrecuenciaBtn("Bogotá\n98.5 fm",
-                "http://streaming.unradio.unal.edu.co:8010/;stream.mp3"),
+                "https://radio.unal.edu.co/streaming/bogota/;stream.mp3"),
             drawFrecuenciaBtn("Medellín\n100.4 fm",
                 "http://streaming.unradio.unal.edu.co:8012/;stream.mp3"),
           ]),

@@ -8,6 +8,7 @@ import 'business_logic/firebase/push_notifications.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
 import 'package:radiounal2/src/presentation/splash.dart';
 
+import 'dart:async'; // Importación para Completer
 
 
 class MyApp extends StatefulWidget {
@@ -23,10 +24,14 @@ class _MyAppState extends State<MyApp> {
 
   GlobalKey<BottomNavigationBarRadioState> keyPlayer = GlobalKey();
   List<ProgramacionModel> pragramacionList = [];
+  Completer<void> _bottomNavBarCompleter = Completer<void>();
 
   @override
   void initState() {
+    super.initState();
     initPushNotifications();
+    print(">>> En APP BottomNavigationBarRadioState ");
+    print(keyPlayer);
 
   }
 
@@ -120,6 +125,11 @@ class _MyAppState extends State<MyApp> {
             title: 'Radio UNAL',
             debugShowCheckedModeBanner: false,
             builder: (context, Widget? childElement) {
+
+              print(">>> En App Builder.");
+              print(keyPlayer);
+              print(childElement);
+
               return Scaffold(
                   body: Stack(children: [
                     if (childElement != null)
@@ -128,11 +138,17 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("22 - play mini reproductor ", style: TextStyle(color: Colors.red))
+                        child: Text("23 - play Frecuencias ", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
-                        bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),
+                        bottom: 0,
+                        child: BottomNavigationBarRadio(
+                          key: keyPlayer,
+                          onInitialized: () {
+                            _bottomNavBarCompleter.complete();
+                          },
+                        )),
                     Splash()
                   ]));
             },
@@ -140,15 +156,27 @@ class _MyAppState extends State<MyApp> {
             onGenerateRoute: (settings) {
               if (settings.name == '/') {
                 return MaterialPageRoute(builder: (context) {
-                  return WillPopScope(
-                      onWillPop: () async {
-                        // Devuelve un valor "false" para deshabilitar el botón de retroceso
-                        return Future.value(false);
-                      },
-                      child: Home(
-                          keyPlayer.currentState?.playMusic, pragramacionList));
-                });
-              }
+                  return FutureBuilder<void>(
+                    future: _bottomNavBarCompleter.future,
+                    builder: (context, snapshot) {
+                      if (snapshot.connectionState == ConnectionState.done) {
+                        print(">>> En App.  keyPlayer.currentState?.playMusic");
+                        print(keyPlayer);
+                        print(keyPlayer.currentState);
+                        print(keyPlayer.currentState?.playMusic);
+
+                        return WillPopScope(
+                            onWillPop: () async {
+                              return Future.value(false);
+                            },
+                            child: Home(keyPlayer.currentState?.playMusic,
+                                pragramacionList));
+                      } else {
+                        return CircularProgressIndicator();
+                      }
+                    },
+                  );
+                });              }
 
               /*else if (settings.name == '/browser') {
                 return MaterialPageRoute(builder: (context) {

@@ -17,7 +17,9 @@ import 'package:intl/date_symbol_data_local.dart';
 //import 'favorito_btn.dart';
 
 class BottomNavigationBarRadio extends StatefulWidget {
-  const BottomNavigationBarRadio({Key? key}) : super(key: key);
+
+  final VoidCallback? onInitialized;
+  const BottomNavigationBarRadio({Key? key, this.onInitialized}) : super(key: key);
 
   @override
   State<BottomNavigationBarRadio> createState() =>
@@ -78,6 +80,12 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.onInitialized != null) {
+        widget.onInitialized!();
+      }
+    });
 
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 800));
@@ -153,6 +161,8 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     });
 
   }
+
+
 
     @override
   void dispose() {
@@ -656,13 +666,13 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
   }
 
   updateAudioUrl(url) async {
-    //await audioPlayer.pause();
+    await audioPlayer.pause();
     setState(() {
       isLoading = true;
     });
-/*
-    audioPlayer.setUrl(url);
-    audioPlayer.play(url);*/
+
+    //audioPlayer.setUrl(UrlSource(url));
+    await audioPlayer.play(UrlSource(audioUrl));
   }
 
   Widget getImageMini() {

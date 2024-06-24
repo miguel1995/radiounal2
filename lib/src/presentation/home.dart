@@ -42,7 +42,7 @@ class Home extends StatefulWidget {
       dynamic tipoParam,
       dynamic urlParam,
       bool isFrecuencia,
-      //FavoritoBtn? favoritoBtn
+      /*FavoritoBtn? favoritoBtn*/
       )? callBackPlayMusic;
 
   List<ProgramacionModel> pragramacionList;
@@ -198,11 +198,11 @@ class _HomeState extends State<Home> {
             drawFrecuenciaBtn("Bogotá\n98.5 fm",
                 "https://radio.unal.edu.co/streaming/bogota/;stream.mp3"),
             drawFrecuenciaBtn("Medellín\n100.4 fm",
-                "http://streaming.unradio.unal.edu.co:8012/;stream.mp3"),
+                "https://radio.unal.edu.co/streaming/medellin/;stream.mp3"),
           ]),
           Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
             drawFrecuenciaBtn("Radio web",
-                "http://streaming.unradio.unal.edu.co:8014/;stream.mp3"),
+                "https://radio.unal.edu.co/streaming/radioweb/;stream.mp3"),
             drawFrecuenciaBtn("Podcast", potcastRandom),
           ])
         ],
@@ -560,10 +560,15 @@ class _HomeState extends State<Home> {
     var widthBox = MediaQuery.of(context).size.width * 0.35;
     return InkWell(
         onTap: () {
-          print(">>> Reproducir Frecuencias");
-          /*
+
+          print(">>>> PLAY MUSIC");
+          print(urlFrecuencia);
+
           widget.callBackPlayMusic!(0, urlFrecuencia, "", "", texto, "", "", "",
-              "", "", "", true, null);*/
+              "", "", "", true
+              /*, null*/
+          );
+
         },
         child: Container(
             alignment: Alignment.center,

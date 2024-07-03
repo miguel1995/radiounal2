@@ -7,7 +7,7 @@ import 'package:flutter/rendering.dart';
 // import 'package:flutter/services.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:radiounal2/src/presentation/patials/app_bar_radio.dart';
+import 'package:radiounal2/src/presentation/partials/app_bar_radio.dart';
 import '../data/models/programacion_model.dart';
 // import 'package:radiounal/src/app.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
@@ -17,7 +17,7 @@ import 'package:radiounal2/src/business_logic/bloc/radio_programacion_bloc.dart'
 // import 'package:radiounal/src/data/models/programa_model.dart';
 // import 'package:radiounal/src/presentation/partials/app_bar_radio.dart';
 // import 'package:radiounal/src/presentation/partials/bottom_navigation_bar_radio.dart';
-// import 'package:radiounal/src/presentation/partials/favorito_btn.dart';
+import 'package:radiounal2/src/presentation/partials/favorito_btn.dart';
 // import 'package:radiounal/src/presentation/partials/menu.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_destacados_bloc.dart';
@@ -42,7 +42,7 @@ class Home extends StatefulWidget {
       dynamic tipoParam,
       dynamic urlParam,
       bool isFrecuencia,
-      /*FavoritoBtn? favoritoBtn*/
+      FavoritoBtn? favoritoBtn
       )? callBackPlayMusic;
 
   List<ProgramacionModel> pragramacionList;
@@ -565,8 +565,7 @@ class _HomeState extends State<Home> {
           print(urlFrecuencia);
 
           widget.callBackPlayMusic!(0, urlFrecuencia, "", "", texto, "", "", "",
-              "", "", "", true
-              /*, null*/
+              "", "", "", true, null
           );
 
         },

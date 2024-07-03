@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:radiounal2/src/presentation/patials/bottom_navigation_bar_radio.dart';
+import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
+import 'package:radiounal2/src/presentation/templates/item_page.dart';
 
 import 'data/models/programacion_model.dart';
 import 'presentation/home.dart';
@@ -138,7 +139,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("23 - play Frecuencias ", style: TextStyle(color: Colors.red))
+                        child: Text("24.1 - show detalle de contenido ", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -225,7 +226,9 @@ class _MyAppState extends State<MyApp> {
                     );
                   },
                 );
-              } else if (settings.name == "/item") {
+              }*/
+
+              else if (settings.name == "/item") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {
@@ -237,7 +240,8 @@ class _MyAppState extends State<MyApp> {
                         callBackPlayMusic: keyPlayer.currentState?.playMusic);
                   },
                 );
-              } else if (settings.name == "/browser-result") {
+              }
+              /*else if (settings.name == "/browser-result") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {

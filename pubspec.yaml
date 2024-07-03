@@ -47,6 +47,13 @@ dependencies:
   cloud_firestore: ^4.3.1 #Caracteristicas de firebase para el manejo de storage
   firebase_messaging: ^14.2.1 #Permite la administraciòn de push notifications con firebase
   audioplayers: ^5.2.1
+  adaptive_theme: ^3.2.0 # Permite la funcionalidad de cambiar entre Tema claro y tema oscuro
+  dio: ^4.0.0
+  permission_handler: ^8.0.0+2
+  share_plus: ^6.3.0
+  flutter_rating_bar: ^4.0.1 # Muestra un calificador de estrellas para el uso de estadisticas
+
+
 
 
 

@@ -12,10 +12,11 @@ import 'package:intl/date_symbol_data_local.dart';
 /*import 'package:platform_device_id/platform_device_id.dart';*/
 /*import 'package:share_plus/share_plus.dart';*/
 
-/*import 'favorito_btn.dart';*/
+import 'favorito_btn.dart';
 
 class BottomNavigationBarRadio extends StatefulWidget {
-  const BottomNavigationBarRadio({Key? key}) : super(key: key);
+  final VoidCallback? onInitialized;
+  const BottomNavigationBarRadio({Key? key, this.onInitialized}) : super(key: key);
 
   @override
   State<BottomNavigationBarRadio> createState() =>
@@ -76,6 +77,12 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
   @override
   void initState() {
     super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (widget.onInitialized != null) {
+        widget.onInitialized!();
+      }
+    });
 
     _controller = AnimationController(
         vsync: this, duration: const Duration(milliseconds: 800));
@@ -262,12 +269,13 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                   iconSize: 80,
                   icon: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
                   onPressed: () async {
-                    /*
+
                     if (isPlaying) {
                       await audioPlayer.pause();
                     } else {
-                      await audioPlayer.play(audioUrl);
-                    }*/
+                      await audioPlayer.play(UrlSource(audioUrl));
+
+                    }
                   },
                 ),
                 IconButton(
@@ -570,8 +578,8 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
       typeParam,
       tipoParam,
       urlParam,
-      bool isFrecuencia
-      /*FavoritoBtn? favoritoBtn*/
+      bool isFrecuencia,
+      FavoritoBtn? favoritoBtn
 
       ) {
 
@@ -633,7 +641,8 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     });
 
     /*audioPlayer.setUrl(url);*/
-    audioPlayer.play(url);
+    await audioPlayer.play(UrlSource(audioUrl));
+
     print(">>> PLAY ");
     print(url);
   }

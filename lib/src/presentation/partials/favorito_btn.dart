@@ -3,7 +3,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:radiounal2/src/business_logic/firebase/firebaseLogic.dart';
-//import 'package:platform_device_id/platform_device_id.dart';
+import 'package:platform_device_id_v3/platform_device_id.dart';
 import 'package:radiounal2/src/presentation/partials/confirm_dialog.dart';
 
 import '../../business_logic/bloc/favorito_bloc.dart';
@@ -56,8 +56,7 @@ class _FavoritoBtnState extends State<FavoritoBtn> {
     String? deviceId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      /*deviceId = await PlatformDeviceId.getDeviceId;*/
-      deviceId = "11111";
+      deviceId = await PlatformDeviceId.getDeviceId;
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';
     }

@@ -195,7 +195,7 @@ class RadioProvider {
 
   //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/programasyemisiones/
   Future<Map<String, dynamic>> getProgramasYEmisiones(List<int> programasUidList, List<int> emisionesUidList) async {
-    var url = Uri.parse('http://$_hostDomain$_urlProgramasYEmisiones');
+    var url = Uri.parse('https://$_hostDomain$_urlProgramasYEmisiones');
     Map<String, dynamic> map = {};
     // Await the http get response, then decode the json-formatted response.
     var body = jsonEncode(<String, dynamic>{'programasUidList': programasUidList, 'emisionesUidList': emisionesUidList});

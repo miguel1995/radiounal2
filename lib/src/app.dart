@@ -8,6 +8,7 @@ import 'presentation/home.dart';
 import 'business_logic/firebase/push_notifications.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
 import 'package:radiounal2/src/presentation/splash.dart';
+import 'package:radiounal2/src/presentation/templates/tab_menu.dart';
 
 import 'dart:async'; // Importación para Completer
 
@@ -139,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("24.1 - show detalle de contenido ", style: TextStyle(color: Colors.red))
+                        child: Text("25 - favoritos y seguidos ", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -252,7 +253,9 @@ class _MyAppState extends State<MyApp> {
                         element: args.element);
                   },
                 );
-              } else if (settings.name == "/favourites") {
+              }*/
+
+               else if (settings.name == "/favourites") {
                 final args = settings.arguments as ScreenArguments;
 
                 return MaterialPageRoute(
@@ -262,7 +265,9 @@ class _MyAppState extends State<MyApp> {
                     );
                   },
                 );
-              } else if (settings.name == "/followed") {
+              }
+              /*
+              else if (settings.name == "/followed") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {

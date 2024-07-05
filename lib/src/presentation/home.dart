@@ -13,7 +13,7 @@ import '../data/models/programacion_model.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_destacados_bloc.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_programacion_bloc.dart';
-// import 'package:radiounal/src/data/models/episodio_model.dart';
+import 'package:radiounal2/src/data/models/episodio_model.dart';
 // import 'package:radiounal/src/data/models/programa_model.dart';
 // import 'package:radiounal/src/presentation/partials/app_bar_radio.dart';
 // import 'package:radiounal/src/presentation/partials/bottom_navigation_bar_radio.dart';
@@ -80,7 +80,7 @@ class _HomeState extends State<Home> {
     blocRadioProgramacion.fetchProgramacion();
     blocRadioMasEscuchados.fetchMasEscuchados();
     blocPodcastMasEscuchados.fetchMasEscuchados();
-/*
+
     blocPodcastDestacados.subject.stream.listen((event) {
       //Actualiza la transmision de podcast random
       EpisodioModel randomItem = (event..shuffle()).first;
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
       setState(() {
         potcastRandom = randomItem.audio;
       });
-    });*/
+    });
   }
 
   /*Future<AdaptiveThemeMode?> themeMethod() async {

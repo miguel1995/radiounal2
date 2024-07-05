@@ -140,7 +140,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("25 - favoritos y seguidos ", style: TextStyle(color: Colors.red))
+                        child: Text("26 - podcast random ", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(

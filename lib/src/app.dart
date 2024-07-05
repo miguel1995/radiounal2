@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
+import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
 
 import 'data/models/programacion_model.dart';
@@ -140,7 +141,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("26 - podcast random ", style: TextStyle(color: Colors.red))
+                        child: Text("26 - más episodios ", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -215,7 +216,10 @@ class _MyAppState extends State<MyApp> {
                     );
                   },
                 );
-              } else if (settings.name == "/detail") {
+              }*/
+
+               else if (settings.name == "/detail") {
+
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {
@@ -227,7 +231,7 @@ class _MyAppState extends State<MyApp> {
                     );
                   },
                 );
-              }*/
+              }
 
               else if (settings.name == "/item") {
                 final args = settings.arguments as ScreenArguments;

@@ -68,9 +68,9 @@ class RadioProvider {
     return InfoModel.fromJson(parsed["info"]);
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/destacados/
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/destacados/
   Future<List<EmisionModel>> getDestacados() async {
-    var url = Uri.parse('http://$_hostDomain$_urlDestacados');
+    var url = Uri.parse('https://$_hostDomain$_urlDestacados');
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
 
@@ -86,9 +86,9 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/mas-escuchado/page/1
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/mas-escuchado/page/1
   Future<List<EmisionModel>> getMasEscuchados() async {
-    var url = Uri.parse('http://$_hostDomain$_urlMasEscuchados');
+    var url = Uri.parse('https://$_hostDomain$_urlMasEscuchados');
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
 
@@ -104,9 +104,9 @@ class RadioProvider {
   }
 
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/programacion
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/programacion
   Future<List<ProgramacionModel>> getProgramacion() async {
-    var url = Uri.parse('http://$_hostDomain$_urlProgramacion');
+    var url = Uri.parse('https://$_hostDomain$_urlProgramacion');
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
@@ -119,9 +119,9 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/programas/page/27
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/programas/page/27
   Future<Map<String, dynamic>> getProgramas(int page) async {
-    var url = Uri.parse('http://$_hostDomain$_urlProgramas${page.toString()}');
+    var url = Uri.parse('https://$_hostDomain$_urlProgramas${page.toString()}');
     Map<String, dynamic> map = {};
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
@@ -144,9 +144,9 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/emisionesByPrograma/
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/emisionesByPrograma/
   Future<Map<String, dynamic>> getEmisiones(int uid, int page) async {
-    var url = Uri.parse('http://$_hostDomain$_urlEmisiones');
+    var url = Uri.parse('https://$_hostDomain$_urlEmisiones');
     Map<String, dynamic> map = {};
     // Await the http get response, then decode the json-formatted response.
     var body = jsonEncode(<String, dynamic>{'programa': uid, 'page': page});
@@ -176,9 +176,9 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/emision/42969
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/emision/42969
   Future<List<EmisionModel>> getEmision(int uid) async {
-    var url = Uri.parse('http://$_hostDomain$_urlEmision${uid.toString()}');
+    var url = Uri.parse('https://$_hostDomain$_urlEmision${uid.toString()}');
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
 
@@ -193,7 +193,7 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/programasyemisiones/
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/programasyemisiones/
   Future<Map<String, dynamic>> getProgramasYEmisiones(List<int> programasUidList, List<int> emisionesUidList) async {
     var url = Uri.parse('https://$_hostDomain$_urlProgramasYEmisiones');
     Map<String, dynamic> map = {};
@@ -218,7 +218,7 @@ class RadioProvider {
   }
 
   Future<String> postEmail(String nombre, String email, String telefono, String mensaje) async {
-    var url = Uri.parse('http://$_hostDomain$_urlContactoEmail');
+    var url = Uri.parse('https://$_hostDomain$_urlContactoEmail');
     Map<String, dynamic> map = {};
     // Await the http get response, then decode the json-formatted response.
     var items = jsonEncode(<String, dynamic>{
@@ -270,7 +270,7 @@ class RadioProvider {
     date: "20-01-2023"
   * */
   Future<String> postEstadistica(int itemUid, String nombre, String sitio, String tipo, int score, String date) async {
-    var url = Uri.parse('http://$_hostDomain$_urlEstadistica');
+    var url = Uri.parse('https://$_hostDomain$_urlEstadistica');
     String string = "";
     // Await the http get response, then decode the json-formatted response.
     var items = jsonEncode(<String, dynamic>{
@@ -326,7 +326,7 @@ class RadioProvider {
   * */
 
   Future<String> postDescarga(String nombre, String edad, String genero, String pais, String departamento, String ciudad, String email) async {
-    var url = Uri.parse('http://$_hostDomain$_urlDescarga');
+    var url = Uri.parse('https://$_hostDomain$_urlDescarga');
     String string = "";
     // Await the http get response, then decode the json-formatted response.
     var items = jsonEncode(<String, dynamic>{
@@ -370,9 +370,9 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/sedes
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/sedes
   Future<Map<String, dynamic>> getSedes() async {
-    var url = Uri.parse('http://$_hostDomain$_urlSedes');
+    var url = Uri.parse('https://$_hostDomain$_urlSedes');
     Map<String, dynamic> map = {};
     // Await the http get response, then decode the json-formatted response.
     var response = await http.get(url);
@@ -399,7 +399,7 @@ class RadioProvider {
     }
   }
 
-  //consume todos los contenidos de http://radio.unal.edu.co/rest/noticias/app/search
+  //consume todos los contenidos de https://radio.unal.edu.co/rest/noticias/app/search
   Future<Map<String, dynamic>> getSearch(
       String query,
       int page,
@@ -408,7 +408,7 @@ class RadioProvider {
       String area,
       String contentType
       ) async {
-    var url = Uri.parse('http://$_hostDomain$_urlSearch');
+    var url = Uri.parse('https://$_hostDomain$_urlSearch');
     Map<String, dynamic> map = {};
 
     var body = jsonEncode(<String, dynamic>{
@@ -422,8 +422,8 @@ class RadioProvider {
       }
     });
 
-    print(url);
-    print(body);
+    /*print(url);*/
+    /*print(body);*/
 
     // Await the http get response, then decode the json-formatted response.
     var response = await http.post(

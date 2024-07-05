@@ -141,7 +141,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("27 -  Descarga de contenidos", style: TextStyle(color: Colors.red))
+                        child: Text("28 -  Draw Menu", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(

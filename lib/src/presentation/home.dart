@@ -18,7 +18,7 @@ import 'package:radiounal2/src/data/models/episodio_model.dart';
 // import 'package:radiounal/src/presentation/partials/app_bar_radio.dart';
 // import 'package:radiounal/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/partials/favorito_btn.dart';
-// import 'package:radiounal/src/presentation/partials/menu.dart';
+import 'package:radiounal2/src/presentation/partials/menu.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_destacados_bloc.dart';
 import 'package:rxdart/rxdart.dart';
@@ -106,7 +106,7 @@ class _HomeState extends State<Home> {
 
     return Scaffold(
         extendBodyBehindAppBar: true,
-        //endDrawer: const Menu(),
+        endDrawer: const Menu(),
         appBar: AppBarRadio(enableBack: false),
         body: DecoratedBox(
             decoration: BoxDecoration(

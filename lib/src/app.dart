@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/templates/about_page.dart';
+import 'package:radiounal2/src/presentation/templates/configurations_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
 
@@ -142,7 +143,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("30 -  Menu Seguidos", style: TextStyle(color: Colors.red))
+                        child: Text("31 -  Menu Show Configurations", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -180,17 +181,22 @@ class _MyAppState extends State<MyApp> {
                       }
                     },
                   );
-                });              }
+                });
+              }
 
               /*else if (settings.name == '/browser') {
                 return MaterialPageRoute(builder: (context) {
                   return BrowserPage();
                 });
-              } else if (settings.name == '/configurations') {
+              }*/
+
+              else if (settings.name == '/configurations') {
                 return MaterialPageRoute(builder: (context) {
                   return ConfigurationsPage();
                 });
-              }*/
+              }
+
+
               else if (settings.name == '/about') {
                 return MaterialPageRoute(builder: (context) {
                   return AboutPage();

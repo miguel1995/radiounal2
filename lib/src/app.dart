@@ -7,6 +7,7 @@ import 'package:radiounal2/src/presentation/templates/contacts_page.dart';
 import 'package:radiounal2/src/presentation/templates/credits_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
+import 'package:radiounal2/src/presentation/templates/politics_page.dart';
 
 import 'data/models/programacion_model.dart';
 import 'presentation/home.dart';
@@ -145,7 +146,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("32 -  Config  show Contactenos", style: TextStyle(color: Colors.red))
+                        child: Text("33 -  Config  show politica de privacidad", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -206,11 +207,11 @@ class _MyAppState extends State<MyApp> {
                   return ContactsPage();
                 });
               }
-              /*else if (settings.name == '/politics') {
+              else if (settings.name == '/politics') {
                 return MaterialPageRoute(builder: (context) {
                   return PoliticsPage();
                 });
-              } */
+              }
               else if (settings.name == '/credits') {
                 return MaterialPageRoute(builder: (context) {
                   return CreditsPage();

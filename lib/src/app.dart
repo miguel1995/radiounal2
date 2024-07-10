@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
+import 'package:radiounal2/src/presentation/templates/about_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
 
@@ -141,7 +142,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("29 -  Menu Unimedios Urls", style: TextStyle(color: Colors.red))
+                        child: Text("30 -  Menu Seguidos", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -189,11 +190,14 @@ class _MyAppState extends State<MyApp> {
                 return MaterialPageRoute(builder: (context) {
                   return ConfigurationsPage();
                 });
-              } else if (settings.name == '/about') {
+              }*/
+              else if (settings.name == '/about') {
                 return MaterialPageRoute(builder: (context) {
                   return AboutPage();
                 });
-              } else if (settings.name == '/contacts') {
+              }
+
+              /*else if (settings.name == '/contacts') {
                 return MaterialPageRoute(builder: (context) {
                   return ContactsPage();
                 });
@@ -270,7 +274,7 @@ class _MyAppState extends State<MyApp> {
                   },
                 );
               }
-              /*
+
               else if (settings.name == "/followed") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
@@ -280,7 +284,7 @@ class _MyAppState extends State<MyApp> {
                     );
                   },
                 );
-              }*/
+              }
 
               assert(false, 'Need to implement ${settings.name}');
               return null;
@@ -289,35 +293,6 @@ class _MyAppState extends State<MyApp> {
 
        /* });*/
   }
-
-
- /* @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home:
-        Stack(
-          children: [
-             Home(
-                keyPlayer.currentState?.playMusic,
-                 pragramacionList
-             ),
-            //Positioned(
-              //  bottom: 0, child: BottomNavigationBarRadio(key: keyPlayer)),
-            Container(
-                alignment: Alignment.center,
-                child: Text("018- draw programacion", style: TextStyle(color: Colors.red))
-            )
-          ],
-        )
-
-    );
-
-  }*/
 
 
 }

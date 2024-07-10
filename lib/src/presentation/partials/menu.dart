@@ -35,16 +35,21 @@ class _MenuState extends State<Menu> {
     MenuItem(
         'Agencia UNAL', "https://agenciadenoticias.unal.edu.co/", "", null),
     MenuItem('Periódico UNAL', "https://periodico.unal.edu.co/", "", null),
-    MenuItem('Televisión UNAL ', "https://television.unal.edu.co/", "", null),
-    MenuItem("Radio UNAL", "http://radio.unal.edu.co/", "", null),
+    MenuItem('Televisión UNAL ', "https://www.youtube.com/channel/UC1wJbI-Z0U24G-H_64SSNPg", "", null),
+    MenuItem("Radio UNAL", "https://radio.unal.edu.co/", "", null),
     MenuItem("Podcast UNAL", "https://podcastradio.unal.edu.co/", "", null),
-    MenuItem("Circular UNAL", "http://circular.unal.edu.co/", "", null),
-    MenuItem("Orgullo UNAL", "http://orgullo.unal.edu.co/", "", null),
-    MenuItem("Debates UNAL", "http://www.debates.unal.edu.co/", "", null),
+    MenuItem("Circular UNAL", "https://circular.unal.edu.co/", "", null),
+    MenuItem("Orgullo UNAL", "https://orgullo.unal.edu.co/", "", null),
+    MenuItem("Debates UNAL", "https://www.debates.unal.edu.co/", "", null),
     MenuItem("Identidad visual",
-        "http://identidad.unal.edu.co/identidad-visual/", "", null),
+        "https://identidad.unal.edu.co/identidad-visual/", "", null),
     MenuItem("Solicitudes Unimedios",
-        "http://solicitudesunimedios.unal.edu.co/", "", null)
+
+
+
+
+
+        "https://solicitudesunimedios.unal.edu.co/", "", null)
   ];
 
   @override

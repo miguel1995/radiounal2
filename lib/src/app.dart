@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/templates/about_page.dart';
 import 'package:radiounal2/src/presentation/templates/configurations_page.dart';
+import 'package:radiounal2/src/presentation/templates/contacts_page.dart';
 import 'package:radiounal2/src/presentation/templates/credits_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
@@ -144,7 +145,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("31 -  Menu Show Configurations", style: TextStyle(color: Colors.red))
+                        child: Text("32 -  Config  show Contactenos", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -200,11 +201,12 @@ class _MyAppState extends State<MyApp> {
                 });
               }
 
-              /*else if (settings.name == '/contacts') {
+              else if (settings.name == '/contacts') {
                 return MaterialPageRoute(builder: (context) {
                   return ContactsPage();
                 });
-              } else if (settings.name == '/politics') {
+              }
+              /*else if (settings.name == '/politics') {
                 return MaterialPageRoute(builder: (context) {
                   return PoliticsPage();
                 });

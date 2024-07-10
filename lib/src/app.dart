@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/templates/about_page.dart';
 import 'package:radiounal2/src/presentation/templates/configurations_page.dart';
+import 'package:radiounal2/src/presentation/templates/credits_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
 
@@ -165,10 +166,6 @@ class _MyAppState extends State<MyApp> {
                     future: _bottomNavBarCompleter.future,
                     builder: (context, snapshot) {
                       if (snapshot.connectionState == ConnectionState.done) {
-                        print(">>> En App.  keyPlayer.currentState?.playMusic");
-                        print(keyPlayer);
-                        print(keyPlayer.currentState);
-                        print(keyPlayer.currentState?.playMusic);
 
                         return WillPopScope(
                             onWillPop: () async {
@@ -211,11 +208,14 @@ class _MyAppState extends State<MyApp> {
                 return MaterialPageRoute(builder: (context) {
                   return PoliticsPage();
                 });
-              } else if (settings.name == '/credits') {
+              } */
+              else if (settings.name == '/credits') {
                 return MaterialPageRoute(builder: (context) {
                   return CreditsPage();
                 });
-              } else if (settings.name == "/content") {
+              }
+
+              /*else if (settings.name == "/content") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {

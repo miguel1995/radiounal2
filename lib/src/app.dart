@@ -2,6 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/templates/about_page.dart';
+import 'package:radiounal2/src/presentation/templates/browser_page.dart';
+import 'package:radiounal2/src/presentation/templates/browser_result_page.dart';
 import 'package:radiounal2/src/presentation/templates/configurations_page.dart';
 import 'package:radiounal2/src/presentation/templates/contacts_page.dart';
 import 'package:radiounal2/src/presentation/templates/content_page.dart';
@@ -147,7 +149,7 @@ class _MyAppState extends State<MyApp> {
                           child: childElement),
                     Container(
                         alignment: Alignment.center,
-                        child: Text("34 -  Menu. Ver programas y series", style: TextStyle(color: Colors.red))
+                        child: Text("35 -  Show Browser", style: TextStyle(color: Colors.red))
                     ),
 
                     Positioned(
@@ -184,11 +186,11 @@ class _MyAppState extends State<MyApp> {
                 });
               }
 
-              /*else if (settings.name == '/browser') {
+              else if (settings.name == '/browser') {
                 return MaterialPageRoute(builder: (context) {
                   return BrowserPage();
                 });
-              }*/
+              }
 
               else if (settings.name == '/configurations') {
                 return MaterialPageRoute(builder: (context) {
@@ -260,7 +262,7 @@ class _MyAppState extends State<MyApp> {
                   },
                 );
               }
-              /*else if (settings.name == "/browser-result") {
+              else if (settings.name == "/browser-result") {
                 final args = settings.arguments as ScreenArguments;
                 return MaterialPageRoute(
                   builder: (context) {
@@ -271,7 +273,7 @@ class _MyAppState extends State<MyApp> {
                         element: args.element);
                   },
                 );
-              }*/
+              }
 
                else if (settings.name == "/favourites") {
                 final args = settings.arguments as ScreenArguments;

@@ -147,10 +147,10 @@ class _MyAppState extends State<MyApp> {
                       Container(
                           padding: const EdgeInsets.only(bottom: 96),
                           child: childElement),
-                    Container(
+                    /*Container(
                         alignment: Alignment.center,
                         child: Text("35 -  Show Browser", style: TextStyle(color: Colors.red))
-                    ),
+                    ),*/
 
                     Positioned(
                         bottom: 0,

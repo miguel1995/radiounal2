@@ -2,7 +2,7 @@ import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
-import 'package:platform_device_id_v3/platform_device_id.dart';
+//import 'package:platform_device_id_v3/platform_device_id.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../business_logic/firebase/push_notifications.dart';
 import 'package:radiounal2/src/business_logic/firebase/firebaseLogic.dart';
@@ -49,7 +49,8 @@ return savedThemeMode;
     String? deviceId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      deviceId = await PlatformDeviceId.getDeviceId;
+      //deviceId = await PlatformDeviceId.getDeviceId;
+      deviceId =  "123456";
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';
     }

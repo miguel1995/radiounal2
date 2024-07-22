@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
-import 'package:platform_device_id_v3/platform_device_id.dart';
+//import 'package:platform_device_id_v3/platform_device_id.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_seriesyepisodios_bloc.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_programasyemisiones_bloc.dart';
 import 'package:radiounal2/src/business_logic/firebase/firebaseLogic.dart';
@@ -88,7 +88,9 @@ class _FollowedPageState extends State<FollowedPage> {
     String? deviceId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      deviceId = await PlatformDeviceId.getDeviceId;
+      //deviceId = await PlatformDeviceId.getDeviceId;
+      deviceId =  "123456";
+
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';
     }

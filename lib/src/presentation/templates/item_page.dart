@@ -9,7 +9,7 @@ import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:platform_device_id_v3/platform_device_id.dart';
+//import 'package:platform_device_id_v3/platform_device_id.dart';
 import 'package:radiounal2/src/business_logic/ScreenArguments.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_episodio_bloc.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_emision_bloc.dart';
@@ -170,7 +170,8 @@ class _ItemPageState extends State<ItemPage> {
     String? deviceId;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
-      deviceId = await PlatformDeviceId.getDeviceId;
+      //deviceId = await PlatformDeviceId.getDeviceId;
+      deviceId =  "123456";
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';
     }

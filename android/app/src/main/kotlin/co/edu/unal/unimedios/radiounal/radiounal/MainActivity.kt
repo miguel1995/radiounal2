@@ -1,4 +1,4 @@
-package co.edu.unal.unimedios.radiounal.radiounal.radiounal2
+package co.edu.unal.unimedios.radiounal.radiounal
 
 import io.flutter.embedding.android.FlutterActivity
 

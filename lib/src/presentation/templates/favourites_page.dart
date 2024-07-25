@@ -7,6 +7,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 //import 'package:platform_device_id_v3/platform_device_id.dart';
+import 'package:radiounal2/src/business_logic/DeviceInfoUtils.dart';
 import 'package:radiounal2/src/business_logic/bloc/podcast_seriesyepisodios_bloc.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_programasyemisiones_bloc.dart';
 import 'package:radiounal2/src/business_logic/firebase/firebaseLogic.dart';
@@ -48,11 +49,12 @@ class _FavouritesPageState extends State<FavouritesPage> {
     var brightness = SchedulerBinding.instance.window.platformBrightness;
     isDarkMode = brightness == Brightness.dark;
     super.initState();
-    initPlatformState();
     firebaseLogic = FirebaseLogic();
 
     initializeDateFormatting('es_ES');
     Intl.defaultLocale = 'es_ES';
+    initPlatformState();
+
   }
 
   @override
@@ -91,7 +93,8 @@ class _FavouritesPageState extends State<FavouritesPage> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       //deviceId = await PlatformDeviceId.getDeviceId;
-      deviceId =  "123456";
+      var deviceInfoUtils = DeviceInfoUtils();
+      await deviceInfoUtils.getDeviceDetails().then((value) => deviceId=value);
 
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';
@@ -105,6 +108,9 @@ class _FavouritesPageState extends State<FavouritesPage> {
     setState(() {
       _deviceId = deviceId;
     });
+    print(">>> Voy a llamar a mis favoritos");
+    print(">>> _deviceId");
+    print(_deviceId);
 
     firebaseLogic.findFavoriteByUserUid(_deviceId).then((value) => {
           //Filtra los IDs de los programas
@@ -421,9 +427,18 @@ class _FavouritesPageState extends State<FavouritesPage> {
                 //Navigator.of(context).pop();
                 Navigator.pop(context);
 
+                print(">>> eliminar elementos");
+                print(">>> _deviceId");
+                print(_deviceId);
+                print(">>> element.uid");
+                print(element.uid);
                 firebaseLogic
                     .eliminarFavorite(element.uid, _deviceId)
                     .then((value) => {
+
+                      print(">>> Elemento eliminado"),
+                      print(value),
+
                           //actualiza el listado
                           initPlatformState()
 

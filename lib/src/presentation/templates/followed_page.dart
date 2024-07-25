@@ -7,6 +7,8 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
 //import 'package:platform_device_id_v3/platform_device_id.dart';
+import 'package:radiounal2/src/business_logic/DeviceInfoUtils.dart';
+
 import 'package:radiounal2/src/business_logic/bloc/podcast_seriesyepisodios_bloc.dart';
 import 'package:radiounal2/src/business_logic/bloc/radio_programasyemisiones_bloc.dart';
 import 'package:radiounal2/src/business_logic/firebase/firebaseLogic.dart';
@@ -45,12 +47,13 @@ class _FollowedPageState extends State<FollowedPage> {
   @override
   void initState() {
     super.initState();
-    initPlatformState();
     firebaseLogic = FirebaseLogic();
     pushNotification = PushNotification();
 
     initializeDateFormatting('es_ES');
     Intl.defaultLocale = 'es_ES';
+    initPlatformState();
+
   }
 
   @override
@@ -89,7 +92,8 @@ class _FollowedPageState extends State<FollowedPage> {
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       //deviceId = await PlatformDeviceId.getDeviceId;
-      deviceId =  "123456";
+      var deviceInfoUtils = DeviceInfoUtils();
+      await deviceInfoUtils.getDeviceDetails().then((value) => deviceId=value);
 
     } on PlatformException {
       deviceId = 'Failed to get deviceId.';

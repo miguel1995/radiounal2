@@ -54,7 +54,8 @@ dependencies:
   flutter_rating_bar: ^4.0.1 # Muestra un calificador de estrellas para el uso de estadisticas
   device_info_plus: ^8.2.2
   #platform_device_id_v3: ^1.0.0 # Id unico del dispositivo
-  #device_info_plus: ^8.2.2
+
+platform: ios, '16.4'
 
 
 dev_dependencies:

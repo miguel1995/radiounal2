@@ -1,6 +1,6 @@
 import 'dart:io';
 
-//import 'package:adaptive_theme/adaptive_theme.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 //import 'package:flutter/scheduler.dart';
@@ -91,18 +91,18 @@ class _HomeState extends State<Home> {
     });
   }
 
-  /*Future<AdaptiveThemeMode?> themeMethod() async {
+  Future<AdaptiveThemeMode?> themeMethod() async {
     final savedThemeMode = await AdaptiveTheme.getThemeMode();
     return savedThemeMode;
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
-    /*themeMethod().then((value) {
+    themeMethod().then((value) {
       setState(() {
         isDarkMode = value == AdaptiveThemeMode.dark;
       });
-    });*/
+    });
 
     return Scaffold(
         extendBodyBehindAppBar: true,

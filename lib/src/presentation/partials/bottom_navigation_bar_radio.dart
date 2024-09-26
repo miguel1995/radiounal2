@@ -1,4 +1,4 @@
-/*import 'package:adaptive_theme/adaptive_theme.dart';*/
+import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui';
@@ -10,9 +10,10 @@ import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:intl/date_symbol_data_local.dart';
 /*import 'package:platform_device_id/platform_device_id.dart';*/
-/*import 'package:share_plus/share_plus.dart';*/
 
 import 'favorito_btn.dart';
+import 'package:share_plus/share_plus.dart';
+
 
 class BottomNavigationBarRadio extends StatefulWidget {
   final VoidCallback? onInitialized;
@@ -187,18 +188,18 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
     return formatted;
   }
 
-  /*Future<AdaptiveThemeMode?> themeMethod() async {
+  Future<AdaptiveThemeMode?> themeMethod() async {
     final savedThemeMode = await AdaptiveTheme.getThemeMode();
     return savedThemeMode;
-  }*/
+  }
 
   @override
   Widget build(BuildContext context) {
-    /*themeMethod().then((value) {
+    themeMethod().then((value) {
       setState(() {
         isDarkMode = (value == AdaptiveThemeMode.dark);
       });
-    });*/
+    });
 
     final size = MediaQuery.of(context).size;
     _maxHeight = size.height * 0.88;
@@ -361,14 +362,31 @@ class BottomNavigationBarRadioState extends State<BottomNavigationBarRadio>
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   myFavoritoBtn!,
-                  IconButton(
+                  Container(
+                    margin: const EdgeInsets.only(
+                        right: 20),
+                    child:InkWell(
+                      onTap: () {
+                        Share.share("Escucha Radio UNAL -  ${url}",
+                            subject: "Radio UNAL - ${title}");
+                      },
+                      child: Container(
+                          padding: EdgeInsets.only(left: 3, right: 3),
+                          child: SvgPicture.asset(
+                              'assets/icons/icono_compartir_redes.svg',
+                              color: isDarkMode
+                                  ? const Color(0xFF121C4A)
+                                  : const Color(0xFFFCDC4D))))
+                  )
+
+                  /*IconButton(
                     color: Color(isDarkMode ? 0xff121C4A : 0xFFFCDC4D),
                     icon: const Icon(Icons.share),
                     onPressed: () {
                       /*Share.share("Escucha Radio UNAL -  ${url}",
                           subject: "Radio UNAL - ${title}");*/
                     },
-                  )
+                  )*/
                 ],
               ),
               SingleChildScrollView(

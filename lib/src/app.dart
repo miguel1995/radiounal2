@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
+
 import 'package:radiounal2/src/presentation/partials/bottom_navigation_bar_radio.dart';
 import 'package:radiounal2/src/presentation/templates/about_page.dart';
 import 'package:radiounal2/src/presentation/templates/browser_page.dart';
@@ -11,6 +13,7 @@ import 'package:radiounal2/src/presentation/templates/credits_page.dart';
 import 'package:radiounal2/src/presentation/templates/detail_page.dart';
 import 'package:radiounal2/src/presentation/templates/item_page.dart';
 import 'package:radiounal2/src/presentation/templates/politics_page.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 import 'data/models/programacion_model.dart';
 import 'presentation/home.dart';
@@ -36,11 +39,15 @@ class _MyAppState extends State<MyApp> {
   GlobalKey<BottomNavigationBarRadioState> keyPlayer = GlobalKey();
   List<ProgramacionModel> pragramacionList = [];
   Completer<void> _bottomNavBarCompleter = Completer<void>();
+  bool isDarkMode = false;
+
 
   @override
   void initState() {
     super.initState();
     initPushNotifications();
+    var brightness = SchedulerBinding.instance.window.platformBrightness;
+    isDarkMode = brightness == Brightness.dark;
     print(">>> En APP BottomNavigationBarRadioState ");
     print(keyPlayer);
 
@@ -68,7 +75,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    /*return AdaptiveTheme(
+    return AdaptiveTheme(
         dark: ThemeData(
             brightness: Brightness.dark,
             primarySwatch: Colors.red,
@@ -127,19 +134,17 @@ class _MyAppState extends State<MyApp> {
                 backgroundColor:
                 isDarkMode ? Color(0xFFFCDC4D) : Color(0xff121C4A))),
         initial: AdaptiveThemeMode.light,
-        builder: (theme, darkTheme) {*/
+        builder: (theme, darkTheme) {
+
+
           return MaterialApp(
             navigatorKey: navigatorKey,
-            //theme: theme,
+            theme: theme,
             //Tema Oscuro, se usa cuando se activa el modo oscuro
-            //darkTheme: darkTheme,
+            darkTheme: darkTheme,
             title: 'Radio UNAL',
             debugShowCheckedModeBanner: false,
             builder: (context, Widget? childElement) {
-
-              print(">>> En App Builder.");
-              print(keyPlayer);
-              print(childElement);
 
               return Scaffold(
                   body: Stack(children: [
@@ -303,7 +308,7 @@ class _MyAppState extends State<MyApp> {
             },
           );
 
-       /* });*/
+        });
   }
 
 

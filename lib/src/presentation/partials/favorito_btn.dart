@@ -9,6 +9,7 @@ import 'package:radiounal2/src/business_logic/DeviceInfoUtils.dart';
 import 'package:radiounal2/src/presentation/partials/confirm_dialog.dart';
 
 import '../../business_logic/bloc/favorito_bloc.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 class FavoritoBtn extends StatefulWidget {
   final int uid; //Indica el id del episodio de podcast o emisora de radio
@@ -80,8 +81,20 @@ class _FavoritoBtnState extends State<FavoritoBtn> {
     });
   }
 
+  Future<AdaptiveThemeMode?> themeMethod() async {
+    final savedThemeMode = await AdaptiveTheme.getThemeMode();
+    return savedThemeMode;
+  }
+
   @override
   Widget build(BuildContext context) {
+
+    themeMethod().then((value) {
+      setState(() {
+        isDarkMode = (value == AdaptiveThemeMode.dark);
+      });
+    });
+
     return InkWell(
         onTap: () {
           if (_isFavorito == true) {
@@ -114,14 +127,14 @@ class _FavoritoBtnState extends State<FavoritoBtn> {
                 ? SvgPicture.asset(
                     'assets/icons/icono_corazon_completo.svg',
                     color: (isPrimaryColor)
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).appBarTheme.foregroundColor,
+                        ? isDarkMode ? const Color(0xFFFCDC4D):const Color(0xFF121C4A)
+                        : isDarkMode ? const Color(0xFF121C4A):const Color(0xFFFCDC4D)
                   )
                 : SvgPicture.asset(
                     'assets/icons/icono_corazon_borde.svg',
                     color: (isPrimaryColor)
-                        ? Theme.of(context).primaryColor
-                        : Theme.of(context).appBarTheme.foregroundColor,
+                        ? isDarkMode ? const Color(0xFFFCDC4D):const Color(0xFF121C4A)
+                        : isDarkMode ? const Color(0xFF121C4A):const Color(0xFFFCDC4D)
                   )));
   }
 

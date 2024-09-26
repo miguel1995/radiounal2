@@ -36,11 +36,16 @@ class _ConfigurationsPageState extends State<ConfigurationsPage> {
 
   @override
   Widget build(BuildContext context) {
+
     themeMethod().then((value) {
+      //print(">>> isDarkMode");
+      //print(isDarkMode);
+
       setState(() {
         isDarkMode = value == AdaptiveThemeMode.dark;
       });
     });
+
     return Scaffold(
       backgroundColor:
           isDarkMode ? const Color(0xFF121C4A) : const Color(0xFFFFFFFF),
@@ -82,7 +87,7 @@ class _ConfigurationsPageState extends State<ConfigurationsPage> {
             ),
           ),
         ),
-        /*Row(
+        Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
@@ -155,7 +160,7 @@ class _ConfigurationsPageState extends State<ConfigurationsPage> {
                                     ? Color(0xFF121C4A)
                                     : Color(0xFFFFFFFF)))))),
           ],
-        ),*/
+        ),
         Container(
             padding: const EdgeInsets.only(top: 20, left: 50, right: 50),
             child: Row(

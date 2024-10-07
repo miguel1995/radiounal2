@@ -935,8 +935,6 @@ class _CustomHeaderDelegate extends SliverPersistentHeaderDelegate {
   String getIsSeguidoText() {
     String str = "";
 
-
-
     return str;
   }
 

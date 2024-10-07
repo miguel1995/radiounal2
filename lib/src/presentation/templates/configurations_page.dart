@@ -302,7 +302,7 @@ class _ConfigurationsPageState extends State<ConfigurationsPage> {
           alignment: Alignment.centerLeft,
           padding: const EdgeInsets.only(left: 20, top: 20),
           child: Text(
-            "Versión 1.0.7+9 (2024)",
+            "Versión 1.0.8+10 (2024)",
             style: TextStyle(
                 color: isDarkMode ? Color(0xFFFFFFFF) : Color(0xFF121C4A),
                 fontSize: 18,

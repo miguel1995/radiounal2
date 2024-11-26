@@ -41,7 +41,7 @@ class _CreditsPageState extends State<CreditsPage> {
             color: isDarkMode ? const Color(0xFF121C4A) : const Color(0xFFFFFFFF),
             padding: const EdgeInsets.only(bottom: 20),
             height: MediaQuery.of(context).size.height * 0.8,
-            margin: const EdgeInsets.only(top: 30, left: 30),
+            margin: const EdgeInsets.only(top: 30, left: 30, right: 30),
             child: SingleChildScrollView(
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -80,13 +80,13 @@ class _CreditsPageState extends State<CreditsPage> {
 
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: 'Rectora: \n',
+                                      text: 'Rector: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Dolly Montoya Castaño',
+                                      text: 'Leopoldo Alberto Múnera Ruiz',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
@@ -116,12 +116,12 @@ class _CreditsPageState extends State<CreditsPage> {
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Freddy Chaparro Sanabria\n',
+                                      text: 'Jaime Rodolfo Ramírez Rodríguez\n',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'ffchaparros@unal.edu.co',
+                                      text: 'jrramirezr@unal.edu.co',
                                       style:
                                           Theme.of(context).textTheme.bodySmall
 
@@ -191,18 +191,18 @@ class _CreditsPageState extends State<CreditsPage> {
 
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: 'Secretaría: \n',
+                                      text: 'Secretaria: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Janeth López Pirajan\n',
+                                      text: 'Victoria Catalina Rojas García\n',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'jlopezpi@unal.edu.co',
+                                      text: 'unradio_nal@unal.edu.co ',
                                       style:
                                           Theme.of(context).textTheme.bodySmall
 
@@ -229,18 +229,18 @@ class _CreditsPageState extends State<CreditsPage> {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'Coordinador Radio UNAL Medellín: \n',
+                                          'Coordinador Programación y Producción - Sede Medellín: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Daniel Iván Longas Arteaga\n',
+                                      text: 'Ronald Villa Martínez\n',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'dilongasa@unal.edu.co',
+                                      text: 'unradiomed@unal.edu.co',
                                       style:
                                           Theme.of(context).textTheme.bodySmall
 
@@ -267,18 +267,18 @@ class _CreditsPageState extends State<CreditsPage> {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'Producción General Radio UNAL Bogotá: \n',
+                                          'Coordinador Programación y Producción - Sede Bogotá: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Wendy Casallas Moreno\n',
+                                      text: 'Julian Steven Moreno Veloza\n',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'wlcasallasm@unal.edu.co',
+                                      text: 'prounradio_nal@unal.edu.co',
                                       style:
                                           Theme.of(context).textTheme.bodySmall
 
@@ -305,7 +305,7 @@ class _CreditsPageState extends State<CreditsPage> {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'Producción General Podcast Radio UNAL: \n',
+                                          'Coordinadora Programación y Producción - Podcast: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
@@ -316,7 +316,7 @@ class _CreditsPageState extends State<CreditsPage> {
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'dihernandezmo@unal.edu.co',
+                                      text: 'podcastun_nal@unal.edu.co ',
                                       style:
                                           Theme.of(context).textTheme.bodySmall
 
@@ -343,13 +343,13 @@ class _CreditsPageState extends State<CreditsPage> {
                                 children: <TextSpan>[
                                   TextSpan(
                                       text:
-                                          'Producción General Radio Web UNAL: \n',
+                                          'Coordinador - Radio Web UNAL: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
                                               Theme.of(context).primaryColor)),
                                   TextSpan(
-                                      text: 'Julio Cesar Casas Castro\n',
+                                      text: 'Julio César Casas Castro\n',
                                       style: TextStyle(
                                           color:
                                               Theme.of(context).primaryColor)),
@@ -380,7 +380,7 @@ class _CreditsPageState extends State<CreditsPage> {
 
                                 children: <TextSpan>[
                                   TextSpan(
-                                      text: 'Fonoteca Radio UNAL: \n',
+                                      text: 'Coordinador Fonoteca: \n',
                                       style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           color:
